@@ -18,11 +18,14 @@ app.listen(port,()=>{
     console.log(`server is running on port ${port} `);
 })
 
-app.get("/profile",(req,res)=>{
+app.get("/profile/:userid/:name",(req,res)=>{
     res.send({name:"raman",age:19});
+    console.log(req.params.userid);
+    console.log(req.params.name);
 });
-app.post("/profile",(req,res)=>{
-    res.send("database updated");
+app.post("/profile/:userid",(req,res)=>{
+    res.send({firstName:"Raman", lastname: "Maurya"});
+    // console.log(req.params(userid));
 });
 app.delete("/user",(req,res)=>{
     res.send("database deleted");
